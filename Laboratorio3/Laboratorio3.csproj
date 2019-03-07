@@ -196,11 +196,19 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Medicametos\MostrarPost.cshtml" />
+    <Content Include="Views\Medicametos\MostrarIn.cshtml" />
+    <Content Include="Views\Medicametos\MostrarPre.cshtml" />
+    <Content Include="Views\Medicametos\BuscarNombre.cshtml" />
+    <Content Include="Views\Medicametos\BuscarNombre2.cshtml" />
+    <Content Include="Views\Medicametos\Ingresa.cshtml" />
+    <Content Include="Views\Medicametos\NuevoMedicamento.cshtml" />
+    <Content Include="Views\Medicametos\Pedir.cshtml" />
+    <Content Include="Views\Medicametos\RealizarPedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Medicametos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

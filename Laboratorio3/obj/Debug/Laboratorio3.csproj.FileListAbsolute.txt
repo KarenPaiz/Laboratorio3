@@ -99,3 +99,6 @@ C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 
 C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 3\Laboratorio3\Laboratorio3\obj\Debug\Laboratorio3.csproj.CopyComplete
 C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 3\Laboratorio3\Laboratorio3\obj\Debug\Laboratorio3.dll
 C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 3\Laboratorio3\Laboratorio3\obj\Debug\Laboratorio3.pdb
+C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 3\Laboratorio3\Laboratorio3\bin\Json.dll
+C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 3\Laboratorio3\Laboratorio3\bin\Json.pdb
+C:\Users\Karen\Desktop\Semestre III\Estructura de datos\Labotatorio\Laboratorio 3\Laboratorio3\Laboratorio3\bin\Newtonsoft.Json.pdb

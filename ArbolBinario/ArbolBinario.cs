@@ -10,7 +10,7 @@ namespace ArbolBinario
     public class ArbolBinario
     {
         public Nodo Raiz;
-        public int ContadorNodos = 0;
+        public static int ContadorNodos = 0;
         //public int Count => throw new NotImplementedException();
         //public bool IsReadOnly => throw new NotImplementedException();
 
@@ -19,32 +19,34 @@ namespace ArbolBinario
             throw new NotImplementedException();
         }
         //AGREGA UN NUEVO ELEMENTO
-        void insertarArbol(Nodo AUX, Medicamento psElemento)
+        public void AgregarElemento(Medicamento item)
         {
-           
-            if (AUX == null)
+            Nodo nuevo= new Nodo(item);
+            nuevo.izquierdo = null;
+            nuevo.Derecho = null;
+            if (Raiz == null)
             {
-                AUX.Medicamento = psElemento;
-                AUX.Derecho = null;
-                AUX.izquierdo = null;
+                Raiz = nuevo;
             }
             else
             {
-                if (psElemento.Id < AUX.Medicamento.Id) // me voy a la izquierda
+                Nodo anterior = null, reco;
+                reco = Raiz;
+                while (reco != null)
                 {
-                    insertarArbol(AUX.izquierdo, psElemento);
+                    anterior = reco;
+                    if (item.Id < reco.Medicamento.Id)
+                        reco = reco.izquierdo;
+                    else
+                        reco = reco.Derecho;
                 }
+                if (item.Id < anterior.Medicamento.Id)
+                    anterior.izquierdo = nuevo;
                 else
-                {
-                    insertarArbol(AUX.Derecho, psElemento);
-                }
+                    anterior.Derecho = nuevo;
             }
         }
-        public void AgregarElemento(Medicamento item)
-        {
-            insertarArbol(Raiz, item);
-            ContadorNodos++;
-        }
+    
 
         //ELIMINA Y REAJUSTA LOS NODOS 
         void Reajuste1(Nodo nNodo)
@@ -170,10 +172,10 @@ namespace ArbolBinario
 
         //BUSCAR UN ELEMENTO, REGRESA UN NODO
         public Nodo AuxBusqueda; // VARIABLE PARA GUARDAR EL ELEMENTO ENCONTRADO
-        public Nodo BuscaRegresa(int data)
+        public Nodo BuscaRegresa(Medicamento data)
         {
             AuxBusqueda = null;
-            Busca(Raiz, data);
+            Busca(Raiz, data.Id);
             return AuxBusqueda;
         }
         void Busca(Nodo nNodo, int data)
@@ -222,46 +224,49 @@ namespace ArbolBinario
 
         //REGRESA UN VECTOR DE MEDICAMENTOS SEGUN PRE(0), POST(1), INORDEN(2) PARA MOSTRAR AL USUARIO
         public Medicamento[] medicamentos; //VAR universal para guardar medicamentos
-        public Medicamento[] Mostrar(int opcion)
+        public int AA;
+        public Medicamento[] Mostrar(int opcion, int cant)
         {
-            medicamentos = new Medicamento[ContadorNodos];
+            medicamentos = new Medicamento[cant];
+            AA = 0;
             switch (opcion)
             {
-                case 1: postOrden(Raiz, 0); break;
-                case 2: preOrden(Raiz,0); break;
-                case 3: enOrden(Raiz,0); break;
+                case 1: postOrden(Raiz); break;
+                case 2: preOrden(Raiz); break;
+                case 3: enOrden(Raiz); break;
             }
             return medicamentos;
         }
-        void postOrden(Nodo nNodo, int contAux)
+        
+        void postOrden(Nodo nNodo)
         {
             if (nNodo != null)
             {
-                postOrden(nNodo.izquierdo, contAux);
-                postOrden(nNodo.Derecho, contAux);
-                medicamentos[contAux] = nNodo.Medicamento;
-                contAux++;
+                postOrden(nNodo.izquierdo);
+                postOrden(nNodo.Derecho);
+                medicamentos[AA] = nNodo.Medicamento;
+                AA++;
             }
             
         }
-        void preOrden(Nodo nNodo, int contAux)
+        void preOrden(Nodo nNodo)
         {
             if (nNodo != null)
             {
-                medicamentos[contAux] = nNodo.Medicamento;
-                contAux++;
-                preOrden(nNodo.izquierdo, contAux);
-                preOrden(nNodo.Derecho, contAux);
+                medicamentos[AA] = nNodo.Medicamento;
+                AA++;
+                preOrden(nNodo.izquierdo);
+                preOrden(nNodo.Derecho);
             }
         }
-        void enOrden(Nodo nNodo, int contAux)
+        void enOrden(Nodo nNodo)
         {
             if (nNodo != null)
             {
-                enOrden(nNodo.izquierdo, contAux);
-                medicamentos[contAux] = nNodo.Medicamento;
-                contAux++;
-                enOrden(nNodo.Derecho, contAux);
+                enOrden(nNodo.izquierdo);
+                medicamentos[AA] = nNodo.Medicamento;
+                AA++;
+                enOrden(nNodo.Derecho);
             }
         }
     }
